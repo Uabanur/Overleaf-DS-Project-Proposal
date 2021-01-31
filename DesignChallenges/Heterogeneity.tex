@@ -1,0 +1,31 @@
+% Heterogeneity of Components
+
+%Heterogeneity can be addressed by means of:
+%• protocols (such as Internet protocols)
+%• middleware (software layer that provides a programming abstraction)
+
+%Heterogeneity applies to the following:
+%‣ networks
+%‣ computer hardware
+%‣ operating systems
+%‣ programming languages
+%‣ implementations by different developers
+
+\subsubsection{Heterogeneity}
+
+Since the design utilizes both a client-server paradigm with remote method invocations, and a peer-to-peer paradigm with  multicasting, heterogeneity between states will be unavoidable. Clients will not have the same information at all times, since they update their state by the accessible information at that time frame. 
+
+The amount of difference between states is anticipated to be within a reasonable margin, since all information from the server, being based on a heat map, is not expected to have great divergence within a time frame. 
+
+Where the biggest heterogeneity is encountered may be within the private groups, where direct locations are available. The information may be older for some clients than others, but again this will be within a set amount of time frames, since the peer to peer information is based on a call and response. 
+
+In both scenarios, the state difference for the different clients is based on their last snapshot of the world. Since the program is based on the real-time updates, and visualization of that information, no internal error occurs from the state difference, only the displayed information is effected.
+
+
+%All interaction with the server will follow a predetermined protocol. This protocol specifies the data format for the client state, and failure handling. The operating system, language and machine specific details of the client may therefore be arbitrary, as long as the protocol is followed and the minimum resources (memory and bandwidth) is available. 
+
+
+
+%Heterogeneity will be a present factor among clients, as updates from either 
+
+%Peer to peer communication in internal groups will be handled by multicasting, which creates a hete

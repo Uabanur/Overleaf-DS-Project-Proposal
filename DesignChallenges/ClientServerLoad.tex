@@ -1,0 +1,17 @@
+%Presentation - concerned with user interface
+%Application processing - concerned with the detailed application-specific processing associated with the application
+%Data management - concerned with the persistent storage of the application (typically a DBMS)
+\subsubsection{Client Server Load}
+The clients will be tasked with presenting the data provided by the server to the user, while the server will be responsible for managing all the data provided from the different clients.
+
+The application processing will be handled almost entirely by the server. The server will continuously receive information from the clients, based on this information the server should create a universal heat-map and make the clients' local area available for them to fetch.
+
+Updating the heat map can be done as a scheduled task, periodically creating an entire new heat map based on the current information. The actual interval for this scheduled task can be set based on how long it is determined that a heat map stays relevant.
+
+
+
+%The presentation layer will be on the client side, and the data management will be on the server side, as usual.
+
+%The application processing in this case will be split between the client and server side, weighted towards the client. The load put on the server, is mainly checking privileges and failure handling, while the actual data manipulation and preparation is up to the client application.
+
+%This would therefore be seen as a hybrid- to thick client.

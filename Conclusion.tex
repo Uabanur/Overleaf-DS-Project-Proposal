@@ -1,0 +1,42 @@
+\section{Conclusion}
+
+Users can with our application get an easier overview of which venues suit their preferences and find friends to hang out with.
+
+The application we have designed is a mix of known features present in different Google, Facebook and Snapchat applications. We have proposed an application that combines the features to achieve a more coherent solution for our proposed market. \medskip
+
+Earlier we introduced some requirements for our application to meet in order for it to be considered something new, relevant and exciting in the market.
+
+Communication, as well as accessibility between clients and the server has been achieved by using a client-server architecture.
+
+Our requirement for concurrency has been met by allowing clients to request the heat-map with RMI's, where the server can serve multiple RMI's concurrently.
+
+Our application is fault tolerant towards failing clients, as only clients sends request to the server, thus a failing client would not affect anything else in the system except itself. A failing client does however have an indirect effect on other clients. If in a group, and a client from that group fails, you will not be able to get that clients actual position.
+
+Location data is available, natively, through the device. 
+
+% Scalability
+
+The bottleneck of our application is the number of RMI requests that our server is able to handle. We have thus argued that to make this solution scalable bandwidth, the server will have to be upgraded with the number of users increasing.
+
+%Groups
+
+Groups have been designed as a peer-to-peer network, as to decrease the load on the server (the bottleneck).
+
+%NonFunctional
+
+    % Privacy
+    Location data is not shared without all involved parties' consent.
+    
+    % Authentication
+    We have achieved authentication by using Facebook authentication, thereby using a "trusted" third party.
+    
+    % Freshness
+    The server only uses somewhat recent data from clients when constructing the heat-map, thus ensuring freshness.
+    
+    % Data availability
+    Data availability has been achieved by making the data private, allowing only clients to see their own location history.
+    
+    % Anonymity
+    Anonymity is achieved by using the heat-map. The heat-map does not show anyone's exact location, but only the concentration of users in a rough area or venue. To see anyone's exact location, they would have to share it with you themselves, through the a peer-to-peer group connection.  
+    
+Ultimately, despite costly scaling, we have shown the designed application to be not only relevant to the market but also feasible to implement.

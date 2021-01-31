@@ -1,0 +1,62 @@
+\documentclass{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{subcaption}
+
+% User Defined Commands
+\newcommand{\secref}[1]{\hyperref[#1]{Section~\ref*{#1}}\xspace}
+\newcommand{\figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}\xspace}
+\newcommand{\tabref}[1]{\hyperref[#1]Table~{\ref*{#1}}\xspace}
+
+
+\title
+{ 
+    \huge{Live monitoring of venue attendance} \\
+    \Large{02220 Distributed systems}
+}
+
+\author
+{
+    Roar Nind Steffensen, s144107,\\
+    Mads Ejdesgaard Maibohm, s144479,\\
+    Kasper Lederballe Sørensen, s144453
+}
+
+\date
+{
+    Submission: May 07, 2018
+}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+\vfill
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{images/DTULOGO.pdf}
+\end{figure}
+\vspace{2cm}
+
+\newpage
+\tableofcontents
+\pagebreak
+\pagenumbering{arabic}
+
+\include{Introduction}
+\include{Approaches}
+\include{SolutionDesign}
+\include{TechnicalDescription}
+\include{Conclusion}
+\include{biblo}
+
+
+\end{document} 

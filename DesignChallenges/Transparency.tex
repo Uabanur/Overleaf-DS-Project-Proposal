@@ -1,0 +1,44 @@
+%The concealment from the user and the application programmer of the separation of components in a distributed system, so that the system is perceived as a whole rather than a collection of independent components
+
+
+%Types of tranparency
+
+%%Access Transparency: Enables local and remote resources to be accessed using identical operations
+
+%%Location Transparency: Enables resources to be accessed without knowledge of their physical or network location (for example, which building or IP address)
+
+%%Concurrency Transparency: Enables several processes to operate concurrently using shared resources without interference between them
+
+%%Replication Transparency: Enables multiple instances of resources to be used to increase reliability and performance without knowledge of the replicas by users or application programmers
+
+%%Failure Transparency: Enables the concealment of faults, allowing users and application programs to complete their tasks despite the failure of hardware or software components
+
+%%Mobility Transparency: Allows the movement of resources and clients within a system without affecting the operation of users or programs
+
+%%Performance Transparency: Allows the system to be reconfigured to improve performance as loads vary
+
+%%Scaling Transparency: Allows the system and applications to expand in scale without change to the system structure or the application algorithms
+
+\subsubsection{Transparency}
+
+%Access Transparency - Nej ting skal hentes asynchront så resultatet skal håndteres asynchront
+%Location Transparency - Ja serveren er tilgængelig gennem en API
+%Concurrency - ||  -  - Vi har ingen critical sections, det er kun serveren der kan ændre i heat map
+%Replication -||- - Der holdes gamle heat maps til historik, de kan bruges som backup ved failures eller stor load
+%Failure -||- - All faults can be concealed since they are asynchronous calls which can simply be resent
+%Mobility -||- - Since we're based on mobile applications and cloud services we're highly mobile
+%Performance -||- - Cloud hosting lets us do load balancing and allocating more resources
+%Scaling -||- - Cloud hosting lets us quickly and easily add more servers.
+
+There are mainly eight different factors to transparency, access, location, concurrency, replication, failure, mobility, performance and scaling. 
+
+Our system is transparent in most of these factors, with the exception of access transparency.
+We do not have access transparency since we have to asynchronously fetch some data from the server so an application programmer would have to deal with promises and a user might experience a slight delay.
+
+Using a cloud hosting platform let us easily handle performance and scaling behind the curtains.
+
+
+
+%Transparency is obtained by abstracting the server implementation away from the client applications. The client sees the API which is supplied. How the request is handled on the server side is not visible to the client.
+
+%Likewise, the server is unknowing of what the client application process use the data for, and how it is handled.

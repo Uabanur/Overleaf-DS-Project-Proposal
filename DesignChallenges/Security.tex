@@ -1,0 +1,20 @@
+%Integrity: Protection against alteration or corruption
+%Confidentiality: Protection against disclosure to unauthorized individuals
+%Availability: Protection against interference with the means to access the resources
+
+\subsubsection{Security}
+Registered clients will have an id, used to specify what data that client is tied to, and that clients privileges. 
+
+On the server side, there will be a map from id's to roles with different privileges. These specify what actions are legal for the client to perform, in order to maintain data integrity and confidentiality. Data corruption is thereby denied on the server side, since the client will not have the needed privileges to perform that action. Confidential data can not be read by a client lacking the privileges.
+
+Since data integrity is uphold, the data will be available on the server side, but it may not be available if e.g. a 'man-in-the-middle' attack was executed. The client's request or the servers response could be altered or inhibited.
+
+To stop unwanted devices gathering information by e.g. sniffing, the data sent back and forth should be encrypted.
+
+
+% Vi er sårbare overfor DDOS angreb eftersom clienterne "pinger" os. De kan fylde hele vores "queue" op så ingen andre kan få deres requests igennem
+% Man kan timeoute pings fra clienter for at undgå det, men somregl når man laver DDOS angreb er det med følge af et botnet eller lign. Altså der er mange agenter der gør det. Vi ville ikke kunne nå at timeoute dem inden vi ikke længere kan service vores rigtige clienter.
+
+\paragraph{Denial of service:}
+
+The server used by our application is, like almost any other server or service on the internet, vulnerable to denial of service attacks. Because our clients "ping" the server with its GPS location, we are exposed to an attack where many clients, perhaps from a botnet, keep pinging the server with updated GPS locations. Such an attack could generate enough traffic that the server would not be able to process the requests in time, building up a huge queue of requests and thus leaving the actual requests from real clients stuck in the queue. It could be possible to timeout pings from clients to try to avoid this attack, but given a big enough botnet it would be unfeasible

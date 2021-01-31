@@ -1,0 +1,16 @@
+% what (potentially changing) roles and responsibilities do these entities have in the overall architecture?
+
+
+% Roles : Client, server, Peers
+
+
+
+\subsubsection{Roles and responsibilities}
+
+Our application only consists of a few simple roles: server, client and peer.%
+%
+\paragraph{Client nodes} are active nodes in the network in the sense that they are the ones engaging contact with the server node(s). They are each responsible for delivering their updated GPS location with small intervals to the server. Furthermore, it is the clients who are responsible for acquiring data from the server, or other clients. All clients are valued equally in the eyes of the server.
+
+\paragraph{Server node(s)} is a passive node that respond to requests queried by clients. The server is responsible for updating the heat map regularly with recent pings from client nodes in the system. When queried by a client with an RMI request, or receives a UDP packet, it responds according to the specified protocols. The servers responsibilities involve storing user data from retrieved packets and running the API for remote methods for e.g. heat maps or association requests.
+
+\paragraph{Peers/Associates} are clients that interact with each other, either directly or through groups. Peers can access exact locations of other active peers they are connected to. Peers are responsible for responding to other peers in the group, as well as responsible for prompting other peers for their information to update its own data.

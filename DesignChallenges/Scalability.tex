@@ -1,0 +1,10 @@
+% A system is scalable if it will remain effective when there is a significant increase in the number of resources and the number of users
+
+\subsubsection{Scalability}
+As discussed regarding \textit{openness}, the amount of users and thereby client processes will be varying, meaning scalability is very important. 
+
+The openness and extendability mentioned offer a lot of scalability, and suggestions as how to handle growing sizes of data. One thing which was not touched upon, was the delay generated from a large pool of users communicating with the suggested api. 
+
+As an attempt to prevent the server being a bottleneck, the data transferred between clients in the private groups are executed peer-to-peer, offloading the requests from the server. The main objective for the server will be to provide the heat maps for the clients at regular intervals. By pregenerating the heat map at regular intervals, the time pr request to the server can become constant.
+
+%For the middleware not to become a bottleneck the system must also support concurrency, for multiple data queries to be handled simultaniously.

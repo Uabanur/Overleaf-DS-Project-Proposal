@@ -1,0 +1,52 @@
+%Computer systems sometimes fail. When faults occur in hardware or software, programs may produce incorrect results or they may stop before they have completed the intended computation
+
+%Example of taxonomy of failures:
+%‣ Omission failures: a process or communication channel fails to perform actions that it is supposed to do
+%‣ Arbitrary failures: any type of error may occur
+%‣ Timing failures: applicable in synchronous distributed systems
+
+\subsubsection{Failure Handling}
+
+
+%Client failure: Intet problem, alle andre fortsætter bare som før, multicast/groups?
+
+%Server Failure: Håndteres af cloud, data bliver vel bare allokeret til en ny node, fuldstænding outsourced
+
+% Omission: Client får ikke indberettet - lige meget, Server får ikke opdateret heat map - burde bare kunne retry ellers kommer der et nyt forsøg om lidt tid, 
+            %Server får ikke sendt request videre til en anden client - et friendrequest går dødt, måske ack/nack på friend requests?
+    
+There are four main actions in the system
+
+\begin{itemize}
+    \item A client posting its location to the server
+    \item An associate posting his location to his group
+    \item The server updating its heat map
+    \item A client posting a friend request to the server
+\end{itemize}
+
+A client failing to post its current location to the server could at worst result in the server not including their new information in the next heat map update, which would likely go unnoticed by all parties. Similarly an associate failing to post an update on his location to his group would only reduce the freshness of his location, and thus not affect the other associates in any major way.
+
+If the server omits updating its heat map then clients will receive somewhat outdated information until the next update. This could be mitigated by scheduling updated more frequently. 
+
+The most problematic message to be omitted would be a client posting a friend request to the server. If this message is omitted, the request is lost.
+
+Since our system is entirely asynchronous, we do not have timing failures.
+
+Arbitrary failures can come in two places, in the client or on the server.
+    
+Since the server is passive, a client failure should have absolutely no impact on it. The only negative effect would be that the clients information will not be updated until it comes back online. As we have chosen to handle communication in the peer-to-peer groups through the multicast paradigm, one of the nodes failing should have little to no effect on the rest of the group. Its only effect is that the other clients in the group will not be able to get its actual position for the time it is failing.
+
+Having chosen to host our server through a cloud hosting platform, we have entirely outsourced failure handling and server maintenance to that platform.
+
+Since there is barely any issue with the majority of the messages potentially being lost between the server and the client, we have decided to use \textit{maybe} protocol for all message based communication except friend requests which will be handled with \textit{at-least-once}.
+
+%Old
+
+
+%If a client fails, as long as it does not halt the server, no major harm is done. It is therefore important, that the server never wait for a client response. If it cannot be avoided, an appropriate timeout should be set.
+
+%If the server fails, it must be handled with care. All clients are dependent on the interaction with the server, and in theory, the server should always be active. The middleware receiving the API calls should test the needed process before forwarding the request to make sure no crash has occurred. In case of an intermediate crash of the process while handling the request, the flow should be redirected by the middleware. 
+
+%If the process responsible for the middleware fails, the process should be rebooted, and in case the hardware is damaged, a backup process should take over the task of the middleware receiving API calls. By default, loosing a request to the server is not a major problem, as the clients will update regularly, and the single request missing will be indistinguishable from e.g. a slow internet connection.
+
+%The communication protocol here, will probably a "at-least-once" communication. Since the data sent the server is the current state of the client, it is not a risk if the state is saved several times, likewise, it is not a risk if the client updates the applet data more often than intended. This way, the protocol specification will use the \texttt{ACK/NACK + TIMEOUT} strategies.

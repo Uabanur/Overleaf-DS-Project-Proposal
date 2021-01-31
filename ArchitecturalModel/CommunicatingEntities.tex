@@ -1,0 +1,15 @@
+\subsubsection{Communicating entities}
+% what are the entities that are communicating in the distributed system?
+
+%Peer to peer vs centralized server
+
+Our proposed system is built mainly around a large number of mobile clients posting their information and accessing information derived from other users. This could be handled both with a peer-to-peer system or with a client-server model. 
+
+The main advantages of using a peer-to-peer system would be the scalability of the system. The operations costs of a peer-to-peer system remain rather low regardless of the scale. However having the peers being mobile applications presents some challenges with regards to their availability and the additional network usage from forwarding information across the network of peers. Furthermore there is a potential issue with privacy when sharing location data over a peer-to-peer network.
+
+Using a client-server model reduces the network usage from the clients to simply posting their own information and retrieving the combined information from the server. Limiting the communication to only being between the client and the server reduces issues with privacy as the users only have to trust the server instead of random other anonymous users. Additionally using a peer-to-peer system would use the users bandwidth to forward messages to their peers, since bandwidth for cell phones is often a limited resource this is not ideal.
+
+However scaling the system with a client-server model puts a strain on the server, bottlenecking the growth by server load. 
+
+Due to the privacy and availability concerns of using a peer-to-peer network, we have chosen to mainly use a client-server model. To limit the server load sharing accurate information between private groups can be done through a small peer-to-peer network. 
+Limiting the scope of the peer-to-peer network to only other trusted clients solves the privacy concern of a larger scale peer-to-peer network and since the availability of live locations would be decided by the clients status either way this seems a applicable solution. %Omformuler?

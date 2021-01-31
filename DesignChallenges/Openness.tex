@@ -1,0 +1,20 @@
+% The openness of a computer system is the characteristic that determines whether the system can be extended and re-implemented in various ways. 
+
+%The degree to which new resource sharing services can be added and be made available for use by a variety of client programs
+
+\subsubsection{Openness}
+The problem itself is very open by default. It is anticipated that clients will come and go, as the client program will be installed and uninstalled by an unknown amount of users. The system must therefore be flexible to the demands from the varying amount of users. 
+
+Since the server is hosted in the cloud, any server upgrade is done by installing the functionality in form of the methods in the API for remote invocation, and transferring the relevant data. This means, expanding the amount of servers, choosing another host or changing to a self hosted server solution is doable without great consequence for the users. Once the needed changes has occurred and is tested, the user activity can be re-routed.
+
+Upgrading functionality and/or introducing new features is also feasible as long as they remain backwards compatible. 
+
+%To create openness for the server, the interaction may be handled by a piece of middleware, which is capable of forwarding the query to the database. This way, several servers/databases may be in use, and handled by the initial middleware, without changing the interaction from the clients perspective. In case of a needed backup, the middleware can discover the error, and redirect the control flow to a separate machine to handle out the request.
+
+%As long as the interface of the middleware is consistent/backward compatible, the implementation itself may be changed/optimized on demand. 
+
+%The middleware will then supply an API for the clients to call through.
+
+The client-server design is thereby extendable on both the software level as well as the hardware level.
+
+Regarding peer-to-peer communication between clients in private groups, the protocol is the only thing which cannot change, since not all clients are guaranteed to be updated immediately. The applications on the client devices themselves can change on demand as long as they fulfill the requirements.

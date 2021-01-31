@@ -1,0 +1,21 @@
+%Both services and applications provide resources that can be shared by different clients in a distributed system
+%There is therefore a possibility that several clients will attempt to access a shared resource at the same time
+%Each resource (servers, Web resources objects in applications, ...) must be designed to be safe in a concurrent environment
+
+\subsubsection{Concurrency}
+
+
+% Vi har ikke rigtige nogle delte resourcer pånær heatmappet.
+% Clienter kan spørge om at få heatmappet med RMI
+% Det sender 
+
+The amount of concurrency required in our application is quite limited. The only resource shared between all clients through the server is the heat map. The full heat map is stored by the server, and local parts are returned to the clients when they invoke RMI calls to the server.
+
+
+
+
+% Client har 2 tråde i forhold til at snakke med andre i en gruppe
+% Sendt multi cast ud tråd
+% Lyt efter multi cast tråd
+
+Some concurrency is however needed when clients are communicating directly with other clients they have established contact with through the server. The clients needs to be able to send their own multicasting queries while still being able to respond to queries made by other clients in the group. This is accomplished by having two separate threads. One responsible for sending queries, and one responsible for answering queries.
